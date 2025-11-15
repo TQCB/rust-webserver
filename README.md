@@ -1,6 +1,6 @@
-# Rust Web Server with Thread Pool 🦀
+# Rust Web Server with Thread Pool 🦀🦀🦀🦀🦀
 
-A basic multi-threaded web server in Rust, built with a custom thread pool to handle concurrent HTTP requests.
+A production-ready multi-threaded web server in Rust, built with a custom thread pool to handle concurrent HTTP requests. Features robust error handling, proper HTTP request parsing, graceful shutdown, and comprehensive tests.
 
 ## How to Run
 
@@ -20,11 +20,19 @@ A basic multi-threaded web server in Rust, built with a custom thread pool to ha
             ```
 3.  **Start Server**: `cargo run`
 4.  **Access**: Open your browser to `http://127.0.0.1:7878/`
+5.  **Run Tests**: `cargo test`
 
 ## Endpoints
 
 *   `/`: Serves `index.html`
 *   `/sleep`: Simulates a slow request (5-second delay) then serves `index.html`
 *   Any other path: Serves `404.html`
+
+## Features
+
+*   **Robust Error Handling**: All errors are handled gracefully with appropriate HTTP responses (400, 500) instead of panicking
+*   **HTTP Request Parsing**: Properly parses HTTP method, path, version, and headers
+*   **Graceful Shutdown**: Workers receive explicit termination signals and finish current jobs before shutting down
+*   **Comprehensive Tests**: Unit tests verify thread pool functionality and graceful shutdown behavior
 
 The server will shut down gracefully when stopped (e.g., `Ctrl+C`).
